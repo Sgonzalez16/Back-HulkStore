@@ -13,8 +13,8 @@ import lombok.*;
 public class CompraEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_compra;
+    @Column(name = "id_compra")
+    private String id_compra;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")
@@ -27,11 +27,11 @@ public class CompraEntity {
     @Column(name = "cantidad")
     private Long cantidad;
 
-    public long getId_compra() {
+    public String getId_compra() {
         return id_compra;
     }
 
-    public void setId_compra(long id_compra) {
+    public void setId_compra(String id_compra) {
         this.id_compra = id_compra;
     }
 
@@ -59,7 +59,7 @@ public class CompraEntity {
         this.cantidad = cantidad;
     }
 
-    public CompraEntity(long id_compra) {
+    public CompraEntity(String id_compra) {
         this.id_compra = id_compra;
     }
 }

@@ -8,11 +8,12 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Data
 @Table(name = "usuarios")
 public class UsuarioEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private String id;
 
     @Column(name = "nombre", length = 20)
@@ -24,12 +25,12 @@ public class UsuarioEntity {
     @Column(name = "num_telefono", length = 12)
     private String num_telefono;
 
-    public String getId_usuario() {
+    public String getId() {
         return id;
     }
 
-    public void setId_usuario(String id_usuario) {
-        this.id = id_usuario;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {

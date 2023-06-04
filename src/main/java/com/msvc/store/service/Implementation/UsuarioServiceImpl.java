@@ -5,6 +5,7 @@ import com.msvc.store.exceptions.ResourceNotFoundException;
 import com.msvc.store.repository.UsuarioRepository;
 import com.msvc.store.service.IUsuarioService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,11 +15,13 @@ import java.util.UUID;
 @Service
 public class UsuarioServiceImpl implements IUsuarioService {
 
+    @Autowired
     private UsuarioRepository usuarioRepository;
+
     @Override
     public UsuarioEntity saveUsuario(UsuarioEntity usuario) {
         String randomUsuarioId = UUID.randomUUID().toString();
-        usuario.setId_usuario(randomUsuarioId);
+        usuario.setId(randomUsuarioId);
         return usuarioRepository.save(usuario);
     }
     @Override

@@ -23,7 +23,7 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(usuario);
     }
 
-    @GetMapping("/usuarioId")
+    @GetMapping("/{usuarioId}")
     public ResponseEntity<UsuarioEntity> obtenerUsuario(@PathVariable String usuarioId){
         UsuarioEntity usuario = iUsuarioService.getUsuario(usuarioId);
         return ResponseEntity.ok(usuario);
