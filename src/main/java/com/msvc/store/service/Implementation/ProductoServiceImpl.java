@@ -1,24 +1,47 @@
 package com.msvc.store.service.Implementation;
 
-import com.msvc.store.dto.ProductoDTO;
-import com.msvc.store.entity.ProductoEntity;
-import com.msvc.store.repository.ProductoRepository;
-import com.msvc.store.service.IProductoService;
+import com.msvc.store.entities.CategoriasEntity;
+import com.msvc.store.entities.ProductosEntity;
+import com.msvc.store.repository.ProductosRepository;
+import com.msvc.store.service.IProductosService;
 import lombok.RequiredArgsConstructor;
-import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-public class ProductoServiceImpl implements IProductoService {
+public class ProductoServiceImpl implements IProductosService {
 
-    private final ProductoRepository productoRepository;
+    private final ProductosRepository productoRepository;
+
     @Override
-    public ProductoEntity saveProducto(ProductoDTO productoDTO){
-        ProductoEntity producto = new ProductoEntity();
-        producto.setNombre(productoDTO.getNombre());
-        producto.setPrecio(productoDTO.getPrecio());
-        ProductoEntity producto1 = new ProductoEntity(productoDTO.getNombre(), productoDTO.getPrecio());
-        return productoRepository.save(producto1);
+    public List<ProductosEntity> obtenerTodosProductos() {
+        return null;
+    }
+
+    @Override
+    public ProductosEntity obtenerProductoPorId(Long id) {
+        return null;
+    }
+
+    @Override
+    public List<ProductosEntity> obtenerProductosPorCategoria(CategoriasEntity categoria) {
+        return null;
+    }
+
+    @Override
+    public void guardarProducto(ProductosEntity producto) {
+
+    }
+
+    @Override
+    public void actualizarProducto(ProductosEntity producto) {
+
+    }
+
+    @Override
+    public void eliminarProducto(Long id) {
+
     }
 }

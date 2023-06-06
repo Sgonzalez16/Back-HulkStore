@@ -1,4 +1,4 @@
-package com.msvc.store.entity;
+package com.msvc.store.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,7 +10,7 @@ import lombok.*;
 @Data
 @Entity
 @Table(name = "compras")
-public class CompraEntity {
+public class ComprasEntity {
 
     @Id
     @Column(name = "id_compra")
@@ -18,11 +18,12 @@ public class CompraEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")
-    private UsuarioEntity usuario;
+    private UsuariosEntity usuario;
 
     @ManyToOne
     @JoinColumn(name = "producto_id")
-    private ProductoEntity producto;
+    private ProductosEntity producto;
+
 
     @Column(name = "cantidad")
     private Long cantidad;
@@ -35,19 +36,19 @@ public class CompraEntity {
         this.id_compra = id_compra;
     }
 
-    public UsuarioEntity getUsuario() {
+    public UsuariosEntity getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(UsuarioEntity usuario) {
+    public void setUsuario(UsuariosEntity usuario) {
         this.usuario = usuario;
     }
 
-    public ProductoEntity getProducto() {
+    public ProductosEntity getProducto() {
         return producto;
     }
 
-    public void setProducto(ProductoEntity producto) {
+    public void setProducto(ProductosEntity producto) {
         this.producto = producto;
     }
 
@@ -59,7 +60,7 @@ public class CompraEntity {
         this.cantidad = cantidad;
     }
 
-    public CompraEntity(String id_compra) {
+    public ComprasEntity(String id_compra) {
         this.id_compra = id_compra;
     }
 }

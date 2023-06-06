@@ -1,9 +1,8 @@
 package com.msvc.store.controllers;
 
 import com.msvc.store.dto.ProductoDTO;
-import com.msvc.store.entity.ProductoEntity;
-import com.msvc.store.service.IProductoService;
-import com.msvc.store.service.Implementation.ProductoServiceImpl;
+import com.msvc.store.entities.ProductosEntity;
+import com.msvc.store.service.IProductosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,11 +16,5 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductoController {
 
         @Autowired
-        private IProductoService iProductoService;
-
-    @PostMapping("/productos")
-    public ResponseEntity<ProductoEntity> crearProducto(@RequestBody ProductoDTO productoDTO) {
-        ProductoEntity producto = iProductoService.saveProducto(productoDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(producto);
-    }
+        private IProductosService iProductosService;
 }

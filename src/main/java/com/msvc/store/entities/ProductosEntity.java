@@ -1,8 +1,7 @@
-package com.msvc.store.entity;
+package com.msvc.store.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import lombok.extern.apachecommons.CommonsLog;
 
 @Getter
 @Setter
@@ -11,7 +10,7 @@ import lombok.extern.apachecommons.CommonsLog;
 @Entity
 @Data
 @Table(name = "productos")
-public class ProductoEntity {
+public class ProductosEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,9 +25,14 @@ public class ProductoEntity {
     @Column(name = "precio")
     private double precio;
 
+    @Column(name = "stock")
     private Long stock;
 
-    public ProductoEntity(String nombre, double precio) {
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private CategoriasEntity categoriasEntity;
+
+    public ProductosEntity(String nombre, double precio) {
     }
 
     public String getNombre() {
@@ -71,7 +75,7 @@ public class ProductoEntity {
         this.stock = stock;
     }
 
-    public ProductoEntity(Long id_producto) {
+    public ProductosEntity(Long id_producto) {
         this.id_producto = id_producto;
     }
 }

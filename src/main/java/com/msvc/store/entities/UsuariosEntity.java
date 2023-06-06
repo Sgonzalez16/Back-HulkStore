@@ -1,4 +1,4 @@
-package com.msvc.store.entity;
+package com.msvc.store.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,7 +10,7 @@ import lombok.*;
 @Entity
 @Data
 @Table(name = "usuarios")
-public class UsuarioEntity {
+public class UsuariosEntity {
 
     @Id
     @Column(name = "id")
@@ -27,7 +27,7 @@ public class UsuarioEntity {
 
     public String getId() {
         return id;
-    }
+    }  
 
     public void setId(String id) {
         this.id = id;
@@ -57,7 +57,7 @@ public class UsuarioEntity {
         this.num_telefono = num_telefono;
     }
 
-    public UsuarioEntity(String id) {
+    public UsuariosEntity(String id) {
         this.id = id;
     }
 }

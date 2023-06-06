@@ -1,9 +1,9 @@
 package com.msvc.store.service.Implementation;
 
-import com.msvc.store.entity.UsuarioEntity;
+import com.msvc.store.entities.UsuariosEntity;
 import com.msvc.store.exceptions.ResourceNotFoundException;
-import com.msvc.store.repository.UsuarioRepository;
-import com.msvc.store.service.IUsuarioService;
+import com.msvc.store.repository.UsuariosRepository;
+import com.msvc.store.service.IUsuariosService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,23 +13,23 @@ import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service
-public class UsuarioServiceImpl implements IUsuarioService {
+public class UsuariosServiceImpl implements IUsuariosService {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UsuariosRepository usuarioRepository;
 
     @Override
-    public UsuarioEntity saveUsuario(UsuarioEntity usuario) {
+    public UsuariosEntity saveUsuario(UsuariosEntity usuario) {
         String randomUsuarioId = UUID.randomUUID().toString();
         usuario.setId(randomUsuarioId);
         return usuarioRepository.save(usuario);
     }
     @Override
-    public List<UsuarioEntity> getAllUsuariosList() {
+    public List<UsuariosEntity> getAllUsuariosList() {
         return usuarioRepository.findAll();
     }
     @Override
-    public UsuarioEntity getUsuario(String usuarioId) {
+    public UsuariosEntity getUsuario(String usuarioId) {
         return usuarioRepository.findById(usuarioId).orElseThrow(() -> new ResourceNotFoundException("Usuario no fue encontrado con ese ID: " + usuarioId));
     }
 }
