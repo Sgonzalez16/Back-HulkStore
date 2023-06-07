@@ -1,4 +1,4 @@
 package com.msvc.store.controllers;
 
-public class CompraController {
+public class ComprasController {
 }

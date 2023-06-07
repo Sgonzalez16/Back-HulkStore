@@ -28,39 +28,4 @@ public class ComprasEntity {
     @Column(name = "cantidad")
     private Long cantidad;
 
-    public String getId_compra() {
-        return id_compra;
-    }
-
-    public void setId_compra(String id_compra) {
-        this.id_compra = id_compra;
-    }
-
-    public UsuariosEntity getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(UsuariosEntity usuario) {
-        this.usuario = usuario;
-    }
-
-    public ProductosEntity getProducto() {
-        return producto;
-    }
-
-    public void setProducto(ProductosEntity producto) {
-        this.producto = producto;
-    }
-
-    public Long getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(Long cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public ComprasEntity(String id_compra) {
-        this.id_compra = id_compra;
-    }
 }
