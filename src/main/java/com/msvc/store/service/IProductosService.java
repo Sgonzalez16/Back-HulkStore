@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface IProductosService {
 
-    List<ProductosEntity> obtenerTodosProductos();
+    List<ProductosEntity> obtenerTodosLosProductos();
 
     ProductosEntity obtenerProductoPorId(Long id);
 

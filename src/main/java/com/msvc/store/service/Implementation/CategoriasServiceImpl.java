@@ -16,26 +16,20 @@ public class CategoriasServiceImpl implements ICategoriasService {
 
     @Override
     public List<CategoriasEntity> obtenerTodasCategorias() {
-        return null;
+        return categoriasRepository.findAll();
     }
 
     @Override
     public CategoriasEntity obtenerCategoriaPorId(Long id) {
-        return null;
+        return categoriasRepository.findById(id).orElse(null);
     }
 
     @Override
     public void guardarCategoria(CategoriasEntity categoria) {
-
+        categoriasRepository.save(categoria);
     }
-
-    @Override
-    public void actualizarCategoria(CategoriasEntity categoria) {
-
-    }
-
     @Override
     public void eliminarCategoria(Long id) {
-
+        categoriasRepository.deleteById(id);
     }
 }

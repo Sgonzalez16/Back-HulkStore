@@ -24,7 +24,7 @@ public class UsuariosController {
     }
 
     @GetMapping("/{usuarioId}")
-    public ResponseEntity<UsuariosEntity> obtenerUsuario(@PathVariable String usuarioId){
+    public ResponseEntity<UsuariosEntity> obtenerUsuarioPorId(@PathVariable String usuarioId){
         UsuariosEntity usuario = iUsuarioService.getUsuario(usuarioId);
         return ResponseEntity.ok(usuario);
     }

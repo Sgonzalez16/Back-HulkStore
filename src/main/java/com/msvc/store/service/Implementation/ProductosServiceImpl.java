@@ -1,5 +1,6 @@
 package com.msvc.store.service.Implementation;
 
+import com.msvc.store.dto.ProductoDTO;
 import com.msvc.store.entities.CategoriasEntity;
 import com.msvc.store.entities.ProductosEntity;
 import com.msvc.store.exceptions.ResourceNotFoundException;
@@ -23,6 +24,9 @@ public class ProductosServiceImpl implements IProductosService {
 
     @Override
     public void guardarProducto(@NotNull ProductosEntity producto) {
+        if (producto.getPrecio() < 0) {
+            throw new IllegalArgumentException("El precio del producto no puede ser negativo");
+        }
         productoRepository.save(producto);
     }
     @Override
@@ -30,7 +34,7 @@ public class ProductosServiceImpl implements IProductosService {
         return productoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Producto no fue encontrado con ese ID: " + id));
     }
     @Override
-    public List<ProductosEntity> obtenerTodosProductos() {
+    public List<ProductosEntity> obtenerTodosLosProductos() {
         return productoRepository.findAll();
     }
     @Override
@@ -39,7 +43,7 @@ public class ProductosServiceImpl implements IProductosService {
         if (!existeCategoria) {
             return Collections.emptyList();
         }
-        return productoRepository.findByCategoriasEntity(categoria);
+        return productoRepository.findByCategorias(categoria);
     }
     @Override
     public void actualizarProducto(ProductosEntity producto) {
@@ -48,7 +52,7 @@ public class ProductosServiceImpl implements IProductosService {
         }
         Optional<ProductosEntity> productoExistente = productoRepository.findById(producto.getId_producto());
         if (productoExistente.isEmpty()) {
-            throw new RuntimeException("El producto no existe");
+            throw new RuntimeException("Producto no existe");
         }
         productoRepository.save(producto);
     }
